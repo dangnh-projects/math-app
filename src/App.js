@@ -1,23 +1,21 @@
-import logo from './logo.svg';
+// import logo from './logo.svg';
 import './App.css';
+import MathA from './Components/MathA';
+import ShowMath from './Components/ShowMath';
+import React, { useEffect, useState } from 'react';
 
 function App() {
+  const [num, setNum] = useState(0);
+  const handleTodoFormSubmit = (formValue) => {
+    
+    let res1 = eval(formValue);
+    setNum(res1);
+  }
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <MathA onSubmit={handleTodoFormSubmit}/>
+      <ShowMath numbers={num}/>
     </div>
   );
 }
